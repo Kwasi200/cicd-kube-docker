@@ -51,13 +51,13 @@ pipeline {
         stage('CODE ANALYSIS with SONARQUBE') {
 
             environment {
-                scannerHome = tool 'sonarscanner'
+                scannerHome = tool 'mysonarscanner4'
             }
 
             steps {
-                withSonarQubeEnv('sonarscanner') {
+                withSonarQubeEnv('sonar-pro') {
                     sh '''${scannerHome}/bin/sonar-scanner -Dsonar.projectKey=vprofile \
-                   -Dsonar.projectName=vprofile\
+                   -Dsonar.projectName=vprofile-repo\
                    -Dsonar.projectVersion=1.0 \
                    -Dsonar.sources=src/ \
                    -Dsonar.java.binaries=target/test-classes/com/visualpathit/account/controllerTest/ \
