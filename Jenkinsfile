@@ -97,6 +97,11 @@ pipeline {
             sh "docker rmi $registry:V$BUILD_NUMBER"
             }
           }
+        stage('Create Namespace') {
+            steps {
+                sh "kubectl create namespace prod || true"
+            }
+        }
         stage('Kubernetes Deploy') {
           agent {label 'KOPS'}
             steps {
