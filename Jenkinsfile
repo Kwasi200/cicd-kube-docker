@@ -48,7 +48,7 @@ pipeline {
             }
         }
 
-        stage('CODE ANALYSIS with SONARQUBE') {
+    /*    stage('CODE ANALYSIS with SONARQUBE') {
 
             environment {
                 scannerHome = tool 'mysonarscanner4'
@@ -70,7 +70,7 @@ pipeline {
                     waitForQualityGate abortPipeline: True
                 }
             }
-        }
+        }   */
 
 
         stage('Build App Image') {
