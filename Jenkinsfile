@@ -73,7 +73,7 @@ pipeline {
         }   */
 
 
-        stage('Build App Image') {
+        stage('BUILD APP IMAGE') {
           steps {
             script {
               dockerImage = docker.build registry + ":V$BUILD_NUMBER"
@@ -82,7 +82,7 @@ pipeline {
 
            }
 
-        stage('Upload Image') {
+        stage('UPLOAD IMAGE') {
           steps {
             script {
                docker.withRegistry('https://registry.hub.docker.com', registryCredential) {
@@ -92,17 +92,17 @@ pipeline {
             }
           }
          }
-        stage('Remove Unused docker image') {
+        stage('REMOVE UNUSED DOCKER IMAGE') {
           steps{
             sh "docker rmi $registry:V$BUILD_NUMBER"
             }
           }
-        stage('Create Namespace') {
+        stage('CREATE NAMESPACE') {
             steps {
                 sh "kubectl create namespace prod || true"
             }
         }
-        stage('Kubernetes Deploy') {
+        stage('KUBERNETES DEPLOY') {
           agent {label 'KOPS'}
             steps {
               sh "helm upgrade --install --force vprofile-stack helm/vprofilecharts  --set appimage=${registry}:V${BUILD_NUMBER} --namespace prod"
