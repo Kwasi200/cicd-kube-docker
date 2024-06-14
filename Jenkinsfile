@@ -99,7 +99,7 @@ pipeline {
           }
         stage('CREATE NAMESPACE') {
             steps {
-                sh "kubectl create namespace prod || true"
+                sh "kubectl create namespace prod"
             }
         }
         stage('KUBERNETES DEPLOY') {
