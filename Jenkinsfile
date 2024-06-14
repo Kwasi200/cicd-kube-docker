@@ -100,8 +100,8 @@ pipeline {
        /* stage('CREATE NAMESPACE') {
             steps {
                 sh "kubectl create namespace prod"
-            } */
-        }
+            } 
+        } */
         stage('KUBERNETES DEPLOY') {
           agent {label 'KOPS'}
             steps {
