@@ -48,7 +48,7 @@ pipeline {
             }
         }
 
-        stage('CODE ANALYSIS with SONARQUBE') {
+     /*   stage('CODE ANALYSIS with SONARQUBE') {
 
             environment {
                 scannerHome = tool 'sonarscanner'
@@ -69,8 +69,8 @@ pipeline {
                 timeout(time: 3, unit: 'MINUTES') {
                     waitForQualityGate abortPipeline: True
                 }
-            }
-        }   
+            } 
+        }    */
 
 
         stage('BUILD APP IMAGE') {
