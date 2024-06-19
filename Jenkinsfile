@@ -48,14 +48,14 @@ pipeline {
             }
         }
 
-    /*    stage('CODE ANALYSIS with SONARQUBE') {
+        stage('CODE ANALYSIS with SONARQUBE') {
 
             environment {
-                scannerHome = tool 'mysonarscanner4'
+                scannerHome = tool 'sonarscanner'
             }
 
             steps {
-                withSonarQubeEnv('sonar-pro') {
+                withSonarQubeEnv('sonarscanner') {
                     sh '''${scannerHome}/bin/sonar-scanner -Dsonar.projectKey=vprofile \
                    -Dsonar.projectName=vprofile-repo\
                    -Dsonar.projectVersion=1.0 \
@@ -70,7 +70,7 @@ pipeline {
                     waitForQualityGate abortPipeline: True
                 }
             }
-        }   */
+        }   
 
 
         stage('BUILD APP IMAGE') {
