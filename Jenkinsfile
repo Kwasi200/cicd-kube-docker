@@ -112,7 +112,14 @@ pipeline {
 
     }
 
-
+    post {
+        success {
+            mail bcc: '', body: 'Pipeline build successfully', cc: '', from: 'rasbarbies@yahoo.com', replyTo: '', subject: 'The Pipeline success', to: 'rasbarbies@yahoo.com'
+        }
+        failure {  
+            mail bcc: '', body: 'Pipeline build not success', cc: '', from: 'rasbarbies@yahoo.com', replyTo: '', subject: 'The Pipeline failed', to: 'rasbarbies@yahoo.com'
+         } 
+    }
 
 
 
